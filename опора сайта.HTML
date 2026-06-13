@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>X5X5 COMPANY | Официальная страница — Ферн + Совладелица</title>
+    <!-- Современный шрифт и базовые стили -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (бесплатные иконки соцсетей) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a0c12 0%, #12151e 100%);
+            font-family: 'Inter', sans-serif;
+            color: #f0f3fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Основная карточка сайта */
+        .site-container {
+            max-width: 720px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(18, 22, 35, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+            padding: 2.5rem 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Логотип / аватарка Ферна (Fern from Adventure Time) */
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .company-icon {
+            background: radial-gradient(circle at 35% 30%, #4c8b3c, #1e4a2a);
+            width: 130px;
+            height: 130px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 35px -8px rgba(60, 118, 40, 0.5), 0 0 0 3px rgba(120, 200, 80, 0.4);
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Стилизованный Ферн — смесь пиксельного/векторного стиля с растительными элементами */
+        .fern-avatar {
+            width: 110px;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .fern-face {
+            background: #78c06e;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 5px 0 #2c5a2a inset, 0 -2px 0 #b3e6a3 inset;
+        }
+
+        /* Глаза (стиль "Время приключений") */
+        .fern-eye {
+            background: #1f2f1c;
+            width: 16px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 28px;
+            transition: all 0.1s;
+        }
+
+        .fern-eye.left {
+            left: 12px;
+        }
+
+        .fern-eye.right {
+            right: 12px;
+        }
+
+        /* Зрачки-блики */
+        .fern-eye::after {
+            content: "";
+            width: 6px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            opacity: 0.8;
+        }
+
+        /* Рот (лёгкая улыбка) */
+        .fern-mouth {
+            width: 30px;
+            height: 16px;
+            border-bottom: 3px solid #2a4724;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Листик на голове — фирменный знак Ферна */
+        .fern-leaf {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%) rotate(15deg);
+            width: 28px;
+            height: 32px;
+            background: #60b543;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            border-radius: 60% 40% 50% 50%;
+            box-shadow: -2px -2px 0 #39802a;
+        }
+
+        .fern-leaf::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 10px;
+            height: 14px;
+            background: #86da64;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.7;
+        }
+
+        /* Веточки/лоза вокруг аватарки для атмосферы */
+        .vines {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: repeating-linear-gradient(45deg, #3d8841, #3d8841 8px, #26642a 8px, #26642a 16px);
+            opacity: 0.5;
+            border-radius: 0 0 28px 28px;
+            pointer-events: none;
+        }
+
+        /* Доп. растительные акценты */
+        .company-icon i.fa-leaf {
+            position: absolute;
+            font-size: 2.2rem;
+            bottom: 5px;
+            right: 8px;
+            color: #caf7a3;
+            text-shadow: 0 0 3px #2b6e1a;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Название бренда */
+        .brand-name {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-name h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #FFFFFF, #c0c9f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+
+        .brand-name .company-tag {
+            font-size: 0.85rem;
+            color: #9aa4bf;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* разделитель-акцент */
+        .accent-line {
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #85cc6a, #4cae30);
+            margin: 0 auto 1.5rem auto;
+            border-radius: 4px;
+        }
+
+        /* ---- ГРУППЫ СОЦСЕТЕЙ: ОСНОВНЫЕ (Официальные) и СОВЛАДЕЛИЦА ---- */
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.2px;
+            color: #cbd5ff;
+            border-left: 3px solid #9bdc7a;
+            padding-left: 14px;
+        }
+        .section-title i {
+            color: #9bdc7a;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-card {
+            background: rgba(10, 12, 20, 0.65);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .social-card a {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1rem 1.8rem;
+            text-decoration: none;
+            color: #eef3ff;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            background: #1e2438;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: 0.2s;
+            color: #9bdc7a;
+        }
+
+        .social-info {
+            flex: 1;
+        }
+
+        .social-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            margin-bottom: 4px;
+        }
+
+        .social-handle {
+            font-size: 0.75rem;
+            color: #8f9bb5;
+            word-break: break-all;
+        }
+
+        .arrow-icon {
+            font-size: 1.2rem;
+            color: #9bdc7a;
+            opacity: 0.7;
+            transition: 0.2s;
+        }
+
+        /* Hover эффекты */
+        .social-card:hover {
+            background: rgba(30, 36, 60, 0.85);
+            border-color: rgba(120, 200, 80, 0.5);
+            transform: translateX(6px);
+        }
+
+        .social-card:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(3px);
+            color: #baff90;
+        }
+
+        .social-card:hover .social-icon {
+            background: #2a314b;
+            color: #c0ff9e;
+        }
+
+        /* Стиль для блока совладелицы с чуть другим оттенком */
+        .coowner-card {
+            background: rgba(20, 24, 40, 0.7);
+            border-left: 2px solid #8cbf6e;
+        }
+        .coowner-card .social-icon {
+            background: #222b3c;
+            color: #a3e083;
+        }
+
+        /* Футер / благодарность */
+        .footer-thanks {
+            margin-top: 2.2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7c85a3;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.8rem;
+        }
+
+        .footer-thanks p {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-weight: 500;
+        }
+
+        .footer-thanks i {
+            color: #9bdc7a;
+            font-size: 1rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 500px) {
+            .glass-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .company-icon {
+                width: 100px;
+                height: 100px;
+            }
+            .fern-avatar {
+                width: 85px;
+                height: 85px;
+            }
+            .fern-face {
+                width: 55px;
+                height: 55px;
+            }
+            .fern-eye {
+                width: 12px;
+                height: 14px;
+                top: 18px;
+            }
+            .fern-eye.left {
+                left: 8px;
+            }
+            .fern-eye.right {
+                right: 8px;
+            }
+            .fern-mouth {
+                width: 24px;
+                bottom: 12px;
+            }
+            .fern-leaf {
+                width: 22px;
+                height: 26px;
+                top: -14px;
+            }
+            .brand-name h1 {
+                font-size: 1.7rem;
+            }
+            .social-card a {
+                padding: 0.85rem 1.2rem;
+            }
+            .social-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1.5rem;
+            }
+            .social-name {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1rem;
+                margin-top: 1.2rem;
+            }
+        }
+
+        /* Анимация загрузки */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-card {
+            animation: fadeSlideUp 0.5s ease-out;
+        }
+
+        /* Дополнительный эффект легкого покачивания листика при ховере на аватарке */
+        .company-icon:hover .fern-leaf {
+            animation: leafWiggle 0.6s ease-in-out;
+        }
+
+        @keyframes leafWiggle {
+            0% { transform: translateX(-50%) rotate(15deg); }
+            50% { transform: translateX(-50%) rotate(25deg); }
+            100% { transform: translateX(-50%) rotate(15deg); }
+        }
+        /* Микро-адаптация для разделителей */
+        .spacer-mini {
+            height: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="site-container">
+    <div class="glass-card">
+        <!-- Логотип / Аватарка Ферна (Fern) из "Времени приключений" -->
+        <div class="logo-area">
+            <div class="company-icon">
+                <div class="fern-avatar">
+                    <!-- Лицо Ферна, стилизованное под Adventure Time -->
+                    <div class="fern-face">
+                        <div class="fern-eye left"></div>
+                        <div class="fern-eye right"></div>
+                        <div class="fern-mouth"></div>
+                    </div>
+                    <!-- Знаковый листок на голове (как у Ферна / Финна-трава) -->
+                    <div class="fern-leaf"></div>
+                    <!-- лёгкие элементы лозы для антуража -->
+                    <div class="vines"></div>
+                </div>
+                <!-- дополнительная иконка листа, чтобы подчеркнуть природу -->
+                <i class="fas fa-leaf"></i>
+            </div>
+        </div>
+
+        <!-- Название компании строго по ТЗ: "X5X5 COMPANY" под иконкой -->
+        <div class="brand-name">
+            <h1>X5X5 COMPANY</h1>
+            <div class="company-tag">официальный хаб • травяной воин</div>
+        </div>
+        <div class="accent-line"></div>
+
+        <!-- ========= БЛОК 1: ОФИЦИАЛЬНЫЕ СОЦСЕТИ КОМПАНИИ ========= -->
+        <div class="section-title">
+            <i class="fas fa-globe"></i> <span>Официальные сети X5X5</span>
+        </div>
+        <div class="social-links">
+            <!-- Twitch -->
+            <div class="social-card">
+                <a href="https://www.twitch.tv/x5x5_company" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-twitch"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">Twitch</div>
+                        <div class="social-handle">twitch.tv/x5x5_company</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <!-- TikTok: основная ссылка (из ТЗ) -->
+            <div class="social-card">
+                <a href="https://www.tiktok.com/@bf_1716?_r=1&_t=ZS-9717O1f3aB3" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">TikTok (Company)</div>
+                        <div class="social-handle">@bf_1716</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <!-- YouTube -->
+            <div class="social-card">
+                <a href="https://youtube.com/@x5x5_fnf?si=D5boYwgCgAnl2Y7x" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">YouTube</div>
+                        <div class="social-handle">@x5x5_fnf</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <!-- Telegram: новостной канал (добавлен по запросу) -->
+            <div class="social-card">
+                <a href="https://t.me/X5X5_COMPANY" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">Telegram (Новостной канал)</div>
+                        <div class="social-handle">@X5X5_COMPANY</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <!-- Telegram основной канал (оставлен как архив/чат) -->
+            <div class="social-card">
+                <a href="https://t.me/X5X5COMPANY" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">Telegram (Основной канал)</div>
+                        <div class="social-handle">@X5X5COMPANY</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ========= БЛОК 2: СОЦСЕТИ СОВЛАДЕЛИЦЫ ========= -->
+        <div class="section-title" style="margin-top: 0.75rem;">
+            <i class="fas fa-users"></i> <span>Совладелица компании</span>
+        </div>
+        <div class="social-links">
+            <!-- TikTok совладелицы: @an31p -->
+            <div class="social-card coowner-card">
+                <a href="https://www.tiktok.com/@an31p" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">TikTok (Совладелица)</div>
+                        <div class="social-handle">@an31p</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <!-- Telegram совладелицы: @An31p -->
+            <div class="social-card coowner-card">
+                <a href="https://t.me/An31p" target="_blank" rel="noopener noreferrer">
+                    <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="social-info">
+                        <div class="social-name">Telegram (Совладелица)</div>
+                        <div class="social-handle">@An31p</div>
+                    </div>
+                    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- малая эстетическая вставка: сообщество растёт вместе -->
+        <div class="footer-thanks">
+            <p>
+                <i class="fas fa-microchip"></i> 
+                Сайт создан с уважением — <strong>Джарвис</strong> 
+                <i class="fas fa-heart" style="color: #ff7b5c; font-size: 0.75rem;"></i>
+            </p>
+            <p style="margin-top: 12px; background: transparent; font-size: 0.7rem;">
+                <i class="fas fa-seedling"></i> X5X5 COMPANY × Ферн (Время приключений) 
+                <i class="fas fa-leaf"></i>  | Совладелица: @an31p
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
